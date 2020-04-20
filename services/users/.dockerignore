@@ -1,0 +1,8 @@
+__pycache__
+env
+venv
+.dockerignore
+Dockerfile
+Dockerfile-dev
+Dockerfile-prod
+__commands.txt

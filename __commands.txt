@@ -1,0 +1,55 @@
+$ python -m venv env
+$ source env/bin/activate
+(env)$ pip install flask
+
+# Run the server localy:
+(env)$ export FLASK_APP=project/__init__.py
+(env)$ python manage.py run
+
+-------------
+-------------
+
+### containerize the Flask app
+$ docker-machine create -d virtualbox microsrv-flask
+$ docker-machine env microsrv-flask
+$ eval "$(docker-machine env microsrv-flask)"
+
+### Build and run
+$ docker-compose -f docker-compose-dev.yml build
+$ docker-compose -f docker-compose-dev.yml up -d
+
+### Grab the IP
+$ docker-machine ip microsrv-flask
+
+http://192.168.99.100:5001/users/ping
+
+
+
+
+    p 27
+        $ docker-compose -f docker-compose-dev.yml up -d --build
+
+
+
+
+
+
+
+
+
+
+
+## killing all containers with
+docker rm -f $(docker ps -a -q)
+
+## To bash into a running container, type this:
+docker run -it testdriven-app_users  /bin/sh
+
+
+docker-compose build
+
+docker-compose up
+
+
+
+
