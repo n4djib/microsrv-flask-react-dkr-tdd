@@ -1,0 +1,17 @@
+=== P 28:
+
+This registers a new command, recreate_db , to the CLI so that we can run it from the command
+line. Apply the model to the dev database:
+
+$ docker-compose -f docker-compose-dev.yml \
+    run users python manage.py recreate_db
+
+
+Did this work? Let's hop into psql...
+$ docker exec -ti $(docker ps -aqf "name=users-db") psql -U postgres
+
+# \c users_dev
+You are now connected to database "users_dev" as user "postgres".
+
+# \dt
+List of relations

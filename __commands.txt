@@ -24,22 +24,13 @@ $ docker-machine ip microsrv-flask
 http://192.168.99.100:5001/users/ping
 
 
-
-
     p 27
         $ docker-compose -f docker-compose-dev.yml up -d --build
 
 
 
 
-
-
-
-
-
-
-
-## killing all containers with
+### killing all containers with
 docker rm -f $(docker ps -a -q)
 
 ## To bash into a running container, type this:
