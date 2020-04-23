@@ -18,16 +18,18 @@ $ eval "$(docker-machine env microsrv-flask)"
 $ docker-compose -f docker-compose-dev.yml build
 $ docker-compose -f docker-compose-dev.yml up -d
 
+# rebuild and run
+$ docker-compose -f docker-compose-dev.yml up -d --build
+
+
 ### Grab the IP
 $ docker-machine ip microsrv-flask
 
 http://192.168.99.100:5001/users/ping
 
 
-### rebuild and run
-$ docker-compose -f docker-compose-dev.yml up -d --build
 
-# to remove dangling images
+### to remove dangling images
 $ docker rmi $(docker images -aq -f 'dangling=true')
 
 
@@ -43,13 +45,15 @@ $ docker-compose -f docker-compose-dev.yml run users python manage.py test
 
 ### enter postgres
 $ winpty docker exec -ti $(docker ps -aqf "name=users-db") psql -U postgres
-
+\c users_dev
+\dt
+\q
 
 ## To bash into a running container, type this:
 $ winpty docker run -it   microsrv-flask-react-dkr-tdd_users   /bin/sh
+    PROBLEM: not working
 
 
-
-
+$ docker-compose -f docker-compose-dev.yml run users python manage.py seeddb
 
 

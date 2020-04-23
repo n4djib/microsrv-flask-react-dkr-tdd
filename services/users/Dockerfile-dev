@@ -28,5 +28,5 @@ COPY . /usr/src/app
 
 # run server
 # CMD ["./entrypoint.sh"]
-CMD ["bash", "./entrypoint.sh"]
+CMD ["sh", "./entrypoint.sh"]
 # ENTRYPOINT ["sh", "./entrypoint.sh"]
