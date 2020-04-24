@@ -14,6 +14,8 @@ $ docker-machine create -d virtualbox microsrv-flask
 $ docker-machine env microsrv-flask
 $ eval "$(docker-machine env microsrv-flask)"
 
+$ docker-machine start testdriven-dev
+
 ### Build and run
 $ docker-compose -f docker-compose-dev.yml build
 $ docker-compose -f docker-compose-dev.yml up -d
@@ -47,6 +49,7 @@ $ docker-compose -f docker-compose-dev.yml run users python manage.py test
 ### enter postgres
 $ winpty docker exec -ti $(docker ps -aqf "name=users-db") psql -U postgres
 \c users_dev
+select * from users;
 \dt
 \q
 
@@ -62,4 +65,9 @@ $ docker-compose -f docker-compose-dev.yml up -d --build nginx
 
 
 
+### add to ~/.bashrc 
+alias dc='docker-compose'
+alias dm='docker-machine'
 
+# Save the file, then execute it:
+$ source ~/.bashrc

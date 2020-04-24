@@ -4,6 +4,7 @@ from project import create_app, db
 from project.api.models import User
 
 
+
 app = create_app()
 cli = FlaskGroup(create_app=create_app)
 
@@ -30,6 +31,8 @@ def seeddb():
     db.session.add(User(username='michaelherman', email="michael@mherman.org"))
     db.session.commit()
     
+
+
 
 if __name__ == '__main__':
     cli()
