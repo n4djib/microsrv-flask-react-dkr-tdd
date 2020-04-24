@@ -1,0 +1,12 @@
+
+######### IS NOT RUNNING in entrypoint.sh
+    # while ! nc -z users-db 5432; do
+    #     echo "--- [nc -z users-db 5432] ---"
+    #     sleep 0.1
+    # done
+
+
+######### AWS deployement is not working
+
+
+

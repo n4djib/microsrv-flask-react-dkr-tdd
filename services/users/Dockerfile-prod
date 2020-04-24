@@ -1,4 +1,3 @@
-# FROM python:3.8.0-alpine
 FROM python:3.6.4
 
 # install environment dependencies
@@ -18,16 +17,14 @@ COPY ./requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# add entrypoint.sh
-COPY ./entrypoint.sh .
+# add entrypoint-prod.sh
+COPY ./entrypoint-prod.sh .
 
-# RUN chmod a+x entrypoint.sh
-RUN chmod +x entrypoint.sh
+# RUN chmod a+x entrypoint-prod.sh
+RUN chmod +x entrypoint-prod.sh
 
 # add app
 COPY . /usr/src/app
 
 # run server
-# CMD ["./entrypoint.sh"]
-CMD ["sh", "./entrypoint.sh"]
-# ENTRYPOINT ["sh", "./entrypoint.sh"]
+CMD ["sh", "./entrypoint-prod.sh"]

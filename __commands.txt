@@ -56,4 +56,9 @@ $ winpty docker run -it   microsrv-flask-react-dkr-tdd_users   /bin/sh
 
 $ docker-compose -f docker-compose-dev.yml run users python manage.py seeddb
 
+### Run the NGINX container:
+$ docker-compose -f docker-compose-dev.yml up -d --build nginx
+
+
+
 

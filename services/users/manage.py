@@ -13,7 +13,6 @@ def recreatedb():
     db.drop_all()
     db.create_all()
     db.session.commit()
-    
 
 @cli.command()
 def test():
@@ -31,7 +30,6 @@ def seeddb():
     db.session.add(User(username='michaelherman', email="michael@mherman.org"))
     db.session.commit()
     
-
 
 if __name__ == '__main__':
     cli()
