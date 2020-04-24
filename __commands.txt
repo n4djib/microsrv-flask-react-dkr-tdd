@@ -24,6 +24,7 @@ $ docker-compose -f docker-compose-dev.yml up -d --build
 
 ### Grab the IP
 $ docker-machine ip microsrv-flask
+$ docker-machine ip default
 
 http://192.168.99.100:5001/users/ping
 
