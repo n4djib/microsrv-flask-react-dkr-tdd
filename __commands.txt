@@ -45,6 +45,10 @@ docker rm -f $(docker ps -a -q)
 $ docker-compose -f docker-compose-dev.yml run users python manage.py recreatedb
 $ docker-compose -f docker-compose-dev.yml run users python manage.py seeddb
 $ docker-compose -f docker-compose-dev.yml run users python manage.py test
+$ docker-compose -f docker-compose-dev.yml run users python manage.py cov
+$ docker-compose -f docker-compose-dev.yml run users flake8 project
+
+
 
 
 ### enter postgres
@@ -55,7 +59,7 @@ select * from users;
 \q
 
 ## To bash into a running container, type this:
-$ winpty docker run -it   microsrv-flask-react-dkr-tdd_users   /bin/sh
+$ winpty docker run -it   microsrv-flask-react-dkr-tdd_users  /bin/sh
     PROBLEM: not working
 
 
@@ -73,4 +77,3 @@ alias dm='docker-machine'
 $ source ~/.bashrc
 
 
-$ docker-compose -f docker-compose-dev.yml run users python manage.py cov
