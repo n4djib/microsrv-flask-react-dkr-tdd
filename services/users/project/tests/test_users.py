@@ -14,7 +14,6 @@ def add_user(username, email):
 
 class TestUserService(BaseTestCase):
     """Tests for the Users Service."""
-    
     def test_users(self):
         """Ensure the /ping route behaves correctly."""
         response = self.client.get('/users/ping')
@@ -38,7 +37,6 @@ class TestUserService(BaseTestCase):
             data = json.loads(response.data.decode())
             self.assertIn('michael@mherman.org was added!', data['message'])
             self.assertIn('success', data['status'])
-
 
     def test_add_user_invalid_json(self):
         """Ensure error is thrown if the JSON object is empty."""
@@ -129,16 +127,17 @@ class TestUserService(BaseTestCase):
         with self.client:
             response = self.client.get('/users')
             jd = json.loads(response.data.decode())
-            
+
             self.assertEqual(response.status_code, 200)
             self.assertEqual(len(jd['data']['users']), 2)
             self.assertIn('success', jd['status'])
 
             self.assertIn('michael', jd['data']['users'][0]['username'])
-            self.assertIn('michael@mherman.org', jd['data']['users'][0]['email'])
+            self.assertIn(
+                'michael@mherman.org', jd['data']['users'][0]['email'])
             self.assertIn('fletcher', jd['data']['users'][1]['username'])
-            self.assertIn('fletcher@notreal.com', jd['data']['users'][1]['email'])
-
+            self.assertIn(
+                'fletcher@notreal.com', jd['data']['users'][1]['email'])
 
     def test_main_no_users(self):
         """Ensure the main route behaves correctly when no users have been
@@ -175,10 +174,5 @@ class TestUserService(BaseTestCase):
             self.assertIn(b'michael', response.data)
 
 
-
-
-
 if __name__ == '__main__':
     unittest.main()
-
-
