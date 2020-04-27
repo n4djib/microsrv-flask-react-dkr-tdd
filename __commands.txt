@@ -2,7 +2,7 @@ $ python -m venv env
 $ source env/bin/activate
 (env)$ pip install flask
 
-# Run the server localy:
+## Run the server localy:
 (env)$ export FLASK_APP=project/__init__.py
 (env)$ python manage.py run
 
@@ -20,7 +20,7 @@ $ docker-machine start testdriven-dev
 $ docker-compose -f docker-compose-dev.yml build
 $ docker-compose -f docker-compose-dev.yml up -d
 
-# rebuild and run
+## rebuild and run
 $ docker-compose -f docker-compose-dev.yml up -d --build
 
 
@@ -73,7 +73,12 @@ $ docker-compose -f docker-compose-dev.yml up -d --build nginx
 alias dc='docker-compose'
 alias dm='docker-machine'
 
-# Save the file, then execute it:
+## Save the file, then execute it:
 $ source ~/.bashrc
+
+
+## for REACT
+set REACT_APP_USERS_SERVICE_URL=http://192.168.99.100
+
 
 
