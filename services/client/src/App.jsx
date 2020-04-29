@@ -20,15 +20,19 @@ class App extends Component {
 
   componentDidMount() {
     this.getUsers();
+    const USERS_SERVICE_URL = process.env.REACT_APP_USERS_SERVICE_URL;
+    console.log(USERS_SERVICE_URL)
   };
 
   getUsers() {
     // set REACT_APP_USERS_SERVICE_URL=http://192.168.99.100
+    // source REACT_APP_USERS_SERVICE_URL=http://192.168.99.100
+
     const USERS_SERVICE_URL = process.env.REACT_APP_USERS_SERVICE_URL;
     // const USERS_SERVICE_URL = 'http://192.168.99.100';
     axios.get(`${USERS_SERVICE_URL}/users`)
-      .then((res) => { this.setState({ users: res.data.data.users }); })
-      .catch((err) => { console.log(err); });
+      .then(res => this.setState({ users: res.data.data.users }))
+      .catch(err => console.log(err));
   }
 
   addUser(event) {
@@ -42,6 +46,10 @@ class App extends Component {
       .then((res) => { 
         console.log(res); 
         this.getUsers();
+        this.setState({
+          username: '',
+          email: ''
+        });
       })
       .catch((err) => { console.log(err); });
   }
@@ -59,7 +67,7 @@ class App extends Component {
         <div className="row">
           <div className="col-md-4">
             <br/>
-            <h1>All Users</h1>
+            <h1>All Users </h1> 
             <hr/>
             <br/>
             <AddUser
