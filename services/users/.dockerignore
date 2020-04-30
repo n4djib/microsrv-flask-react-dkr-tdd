@@ -7,3 +7,4 @@ Dockerfile-dev
 Dockerfile-prod
 __commands.txt
 htmlcov
+migrations

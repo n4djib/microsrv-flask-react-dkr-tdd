@@ -106,3 +106,13 @@ docker rm -f $(docker ps -aqf "name=client")
 docker-compose -f docker-compose-dev.yml up --build -d client
 
 
+
+docker-compose -f docker-compose-dev.yml  run users python manage.py test
+docker-compose -f docker-compose-dev.yml  run client npm test
+
+
+docker-compose -f docker-compose-dev.yml run users python manage.py db init
+docker-compose -f docker-compose-dev.yml run users python manage.py db migrate
+docker-compose -f docker-compose-dev.yml run users python manage.py db upgrade
+
+

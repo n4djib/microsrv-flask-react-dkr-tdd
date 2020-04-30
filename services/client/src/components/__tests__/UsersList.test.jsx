@@ -27,7 +27,7 @@ test('UsersList renders properly', () => {
     expect(element.get(0).props.children).toBe('michael');
 });
 
-// test('UsersList renders a snapshot properly', () => {
-//     const tree = renderer.create(<UsersList users={users}/>).toJSON();
-//     expect(tree).toMatchSnapshot();
-// });
+test('UsersList renders a snapshot properly', () => {
+    const tree = renderer.create(<UsersList users={users}/>).toJSON();
+    expect(tree).toMatchSnapshot();
+});

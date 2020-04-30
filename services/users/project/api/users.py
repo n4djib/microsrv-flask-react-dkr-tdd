@@ -9,7 +9,7 @@ users_blueprint = Blueprint('users', __name__, template_folder='./templates')
 @users_blueprint.route('/users/ping', methods=['GET'])
 def ping_pong():
     return jsonify({
-        'status': 'success dddddd',
+        'status': 'success',
         'message': 'pong!'
     })
 

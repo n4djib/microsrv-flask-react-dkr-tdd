@@ -67,7 +67,7 @@ class App extends Component {
         <div className="row">
           <div className="col-md-4">
             <br/>
-            <h1>All Users </h1> 
+            <h1>All Users</h1> 
             <hr/>
             <br/>
             <AddUser

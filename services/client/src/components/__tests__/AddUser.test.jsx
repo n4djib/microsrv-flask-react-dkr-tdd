@@ -13,7 +13,7 @@ test('AddUser renders properly', () => {
     expect(element.find('input').get(2).props.type).toBe('submit');
 });
 
-// test('AddUser renders a snapshot properly', () => {
-//     const tree = renderer.create(<AddUser/>).toJSON();
-//     expect(tree).toMatchSnapshot();
-// });
+test('AddUser renders a snapshot properly', () => {
+    const tree = renderer.create(<AddUser/>).toJSON();
+    expect(tree).toMatchSnapshot();
+});
