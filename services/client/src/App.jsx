@@ -42,6 +42,9 @@ class App extends Component {
       email: this.state.email
     };
 
+    // console.log('----addUser----');
+    // console.log(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`);
+    
     axios.post(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`, data)
       .then((res) => { 
         console.log(res); 
