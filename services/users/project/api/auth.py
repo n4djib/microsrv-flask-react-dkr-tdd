@@ -16,11 +16,9 @@ def register_user():
     }
     if not post_data:
         return jsonify(response_object), 400
-
     username = post_data.get('username')
     email = post_data.get('email')
     password = post_data.get('password')
-
     try:
         # check for existing user
         user = User.query.filter(
@@ -34,7 +32,6 @@ def register_user():
             )
             db.session.add(new_user)
             db.session.commit()
-
             # generate auth token
             auth_token = new_user.encode_auth_token(new_user.id)
             response_object['status'] = 'success'
@@ -61,7 +58,6 @@ def login_user():
     }
     if not post_data:
         return jsonify(response_object), 400
-
     email = post_data.get('email')
     password = post_data.get('password')
     try:
