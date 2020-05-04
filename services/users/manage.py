@@ -48,6 +48,11 @@ def seeddb():
         email="michael@mherman.org",
         password="michael@mherman.org")
     )
+    # db.session.add(User(
+    #     username='n4djib',
+    #     email="n4djib@gmail.com",
+    #     password="123456")
+    # )
     db.session.commit()
 
 @cli.command()
