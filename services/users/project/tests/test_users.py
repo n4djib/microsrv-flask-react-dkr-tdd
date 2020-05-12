@@ -282,17 +282,17 @@ class TestUserService(BaseTestCase):
         add_user('test', 'test@test.com', 'test')
         with self.client:
             resp_login = self.client.post(
-            '/auth/login',
-            data=json.dumps({
-            'email': 'test@test.com',
-            'password': 'test'
-            }),
-            content_type='application/json'
+                '/auth/login',
+                data=json.dumps({
+                    'email': 'test@test.com',
+                    'password': 'test'
+                }),
+                content_type='application/json'
             )
             token = json.loads(resp_login.data.decode())['auth_token']
             response = self.client.get(
-            '/auth/status',
-            headers={'Authorization': f'Bearer {token}'}
+                '/auth/status',
+                headers={'Authorization': f'Bearer {token}'}
             )
             data = json.loads(response.data.decode())
             self.assertTrue(data['status'] == 'success')
