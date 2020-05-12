@@ -79,8 +79,8 @@ $ source ~/.bashrc
 
 
 ## for REACT
-$ set    REACT_APP_USERS_SERVICE_URL=http://192.168.99.100
-$ export REACT_APP_USERS_SERVICE_URL=http://192.168.99.100
+$
+export REACT_APP_USERS_SERVICE_URL=http://192.168.99.100
 
 $ docker-compose -f docker-compose-dev.yml up --build -d client
 $ docker-compose -f docker-compose-dev.yml run client npm test
@@ -115,5 +115,14 @@ docker-compose -f docker-compose-dev.yml  run client npm test
 docker-compose -f docker-compose-dev.yml run users python manage.py db init
 docker-compose -f docker-compose-dev.yml run users python manage.py db migrate
 docker-compose -f docker-compose-dev.yml run users python manage.py db upgrade
+
+
+
+## testCafe    [npm install -g testcafe]
+$
+export TEST_URL=http://192.168.99.100
+testcafe chrome e2e
+
+
 
 
