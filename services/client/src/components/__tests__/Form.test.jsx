@@ -5,21 +5,25 @@ import renderer from 'react-test-renderer';
 import Form from '../Form';
 
 const testData = [
-  {
-    formType: 'Register',
-    formData: {
-        username: '',
-        email: '',
-        password: ''
+    {
+        formType: 'register',
+        formData: {
+            username: '',
+            email: '',
+            password: ''
+        },
+        isAuthenticated: false,
+        loginUser: jest.fn(),
     },
-  },
-  {
-    formType: 'Login',
-    formData: {
-        email: '',
-        password: ''
-    },
-  }
+    {
+        formType: 'login',
+        formData: {
+            email: '',
+            password: ''
+        },
+        isAuthenticated: false,
+        loginUser: jest.fn(),
+    }
 ]
 
 testData.forEach((el) => {
