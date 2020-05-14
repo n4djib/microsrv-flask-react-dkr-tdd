@@ -155,7 +155,7 @@ class Form extends Component {
         <h1 style={{'textTransform':'capitalize'}}>{this.props.formType}</h1>
         <hr/><br/>
         
-        <FormErrors
+        <FormErrors 
           formType={this.props.formType}
           formRules={formRules}
         />
